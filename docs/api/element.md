@@ -186,7 +186,7 @@ Takes a screenshot of the underlying WPF element and returns it as an array of `
 **Usage**
 ```csharp
 var bytes = element.Screenshot();
-File.WriteAllBytes(@"%TEMP%\output.jpg");
+File.WriteAllBytes(@"%TEMP%\output.jpg", bytes);
 ```
 ----
 `Element RaiseEvent<TInput>(Expression<Func<TInput, RoutedEventArgs>> code)`
