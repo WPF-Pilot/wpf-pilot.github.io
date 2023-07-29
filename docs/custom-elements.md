@@ -13,9 +13,9 @@ We'll look at the [`WpfWebView2Sample` repo](https://github.com/WPF-Pilot/WpfWeb
 git clone https://github.com/WPF-Pilot/WpfWebView2Sample.git
 ```
 
-The `Element` class has many built in methods, such as `Click`, `Type`, and many more. However, it is possible to create custom `Elements` by inheriting from `Element<T>` on .NET 5+ or `Element` on older frameworks.
+The standard `Element` class has many built in methods, such as `Click`, `Type`, and more. If we need more, it is possible to create custom `Elements` by inheriting from `Element<T>` on .NET 5+ or `Element` on older frameworks.
 
-`Element<T>` requires .NET 5+ because it uses covariant types, which is a C# 9.0 feature. However inheriting from `Element` works too, the interface will simply not be fluent. This means it will not be possibly to chain your custom methods with the base methods, eg `myCustomElement.Click().MyCustomMethod()` will not work, because `Click` will return the base `Element` class.
+`Element<T>` requires .NET 5+ because it uses covariant types, which is a C# 9.0 feature. However inheriting from `Element` works too, but the interface will not be fluent. This means it will not be possible to chain your custom methods with the base methods, eg `myCustomElement.Click().MyCustomMethod()` will not work, because `Click` will return the base `Element` class.
 
 Looking in `tests/WpfWebView2Sample.UITests/WebView2Element.cs`, we see a barebones implementation,
 
