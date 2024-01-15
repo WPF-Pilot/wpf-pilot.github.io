@@ -15,7 +15,7 @@ export default function PricingPage(): JSX.Element {
                 WPF Pilot Commercial Use License
               </div>
               <div className={styles.buttons} style={{ paddingTop: '14px', display: 'flex' }}>
-                <a className={styles.button} href="https://buy.stripe.com/14kaFMaX7dF75Gg6os" target="_blank">
+                <a className={styles.button} href="https://buy.stripe.com/9AQcNU8OZdF7c4E9AF" target="_blank">
                   Purchase
                 </a>
               </div>
@@ -43,7 +43,7 @@ export default function PricingPage(): JSX.Element {
                 <div>Unlimited client applications</div>
                 <div>Unlimited redistributions</div>
                 <div className={styles.buttons} style={{ paddingTop: '14px', display: 'flex', marginLeft: '22px' }}>
-                    <a className={styles.button} href="https://buy.stripe.com/14kaFMaX7dF75Gg6os" target="_blank">
+                    <a className={styles.button} href="https://buy.stripe.com/9AQcNU8OZdF7c4E9AF" target="_blank">
                     Purchase
                     </a>
                 </div>
