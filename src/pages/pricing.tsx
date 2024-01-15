@@ -15,7 +15,7 @@ export default function PricingPage(): JSX.Element {
                 WPF Pilot Commercial Use License
               </div>
               <div className={styles.buttons} style={{ paddingTop: '14px', display: 'flex' }}>
-                <a className={styles.button} href="https://buy.stripe.com/bIYg061mxasVgkU6oo" target="_blank">
+                <a className={styles.button} href="https://buy.stripe.com/14kaFMaX7dF75Gg6os" target="_blank">
                   Purchase
                 </a>
               </div>
@@ -37,13 +37,13 @@ export default function PricingPage(): JSX.Element {
           <div className="row" style={{ marginBottom: '2rem', fontWeight: 700, justifyContent: 'center' }}>
             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
                 <img src={useBaseUrl('/img/logo-full.png')} style={{ width: '200px', height: '200px' }} className={styles.bannerLogo} />
-                <div style={{ fontSize: "20px" }}>$2559 USD per year</div>
+                <div style={{ fontSize: "20px" }}>$59.99 USD per year</div>
                 <div>Unlimited developers</div>
                 <div>Unlimited APIs</div>
                 <div>Unlimited client applications</div>
                 <div>Unlimited redistributions</div>
                 <div className={styles.buttons} style={{ paddingTop: '14px', display: 'flex', marginLeft: '22px' }}>
-                    <a className={styles.button} href="https://buy.stripe.com/bIYg061mxasVgkU6oo" target="_blank">
+                    <a className={styles.button} href="https://buy.stripe.com/14kaFMaX7dF75Gg6os" target="_blank">
                     Purchase
                     </a>
                 </div>
