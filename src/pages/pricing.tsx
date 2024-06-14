@@ -41,8 +41,9 @@ export default function PricingPage(): JSX.Element {
           </div>
           <div>
             A WPF Pilot Commercial Use License is immediately granted upon
-            donation of <b>$100 USD</b> to a charity of your choice and must be
-            renewed once per year.
+            donation of <b>$100 USD</b> to a charity of your choice and lasts
+            one year from the date of donation. You may renew your license by a
+            new donation.
           </div>
           <div
             className="row"
