@@ -13,8 +13,12 @@
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
- docsSidebar: ['tutorial', 'custom-elements', 'deep-dive'],
- apiSidebar: ['api/app-driver', 'api/element', 'api/primitive', 'api/keyboard'],
+    docsSidebar: ['tutorial', 'custom-elements', 'deep-dive', {
+        type: 'link',
+        label: 'CI/CD GitHub Action',
+        href: 'https://github.com/WPF-Pilot/PaymentCalculator/blob/main/.github/workflows/ui-tests.yml',
+    }],
+    apiSidebar: ['api/app-driver', 'api/element', 'api/primitive', 'api/keyboard'],
 };
 
 module.exports = sidebars;
