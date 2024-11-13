@@ -12,27 +12,19 @@ sidebar_position: 4
 ----
 `void Press(params Key[] keys)`
 
-Sends a key press message to the application. For modifier key support such as `Ctrl` and `Shift`, use `Keyboard.Hotkey` instead.
+Simulates sending the given keys to the application. This is especially useful for non-WPF UI that `AppDriver` cannot access. For example, a usual Win32 dialog triggered by the application can be interacted with using `appDriver.Keyboard.Press(Key.Tab)` to tab through options and `appDriver.Keyboard.Press(Key.Enter)` to select one.
 
 **Usage**
 ```csharp
 appDriver.Keyboard.Press(Key.A, Key.B, Key.C);
+appDriver.Keyboard.Press(Key.LeftCtrl, Key.B); // Holds control for the other keys.
 ```
 ----
 `void Type(string text)`
 
-Triggers a `TextCompositionEventArgs` on the currently focused element. This simulates typing on a keyboard.
+Simulates typing on a keyboard.
 
 **Usage**
 ```csharp
 appDriver.Keyboard.Type("Hello world!");
-```
-----
-`void Hotkey(ModifierKeys modifier, Key key)`
-
-Sends a key press input to the application. Due to implementation details, this will bring the application to the foreground. If modifier key support is unneeded, consider using `Press` instead.
-
-**Usage**
-```csharp
-appDriver.Keyboard.Hotkey(ModifierKeys.Control, Key.A);
 ```
