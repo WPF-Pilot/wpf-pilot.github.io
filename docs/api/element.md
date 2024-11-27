@@ -220,7 +220,7 @@ element.RaiseEvent<TextBox>(x => new TextCompositionEventArgs(
 ----
 `TOutput Invoke<TInput, TOutput>(Expression<Func<TInput, TOutput>> code)`
 
-Invokes the given `code` expression on the underlying WPF element and returns the result if it is serializable, or `null` if it is not.
+Invokes the given `code` expression on the underlying WPF element and returns the result if it is serializable, or an exception if it is not.
 
 `TInput` specifies the type of the underlying WPF element.
 
@@ -239,7 +239,7 @@ var registrationDate = element.Invoke<Calendar, DateTime>(x => x.Invoke<DateTime
 ----
 `Element Invoke<TInput, TOutput>(Expression<Func<TInput, TOutput>> code, out TOutput? result)`
 
-Invokes the given `code` expression on the underlying WPF element and returns the result to `result` if it is serializable, or `null` if it is not.
+Invokes the given `code` expression on the underlying WPF element and returns the result to `result` if it is serializable, or an exception if it is not.
 
 `TInput` specifies the type of the underlying WPF element.
 
@@ -278,7 +278,7 @@ element.Invoke<MyCoolControl>(x => x.ResetState());
 ----
 `TOutput InvokeAsync<TInput, TOutput>(Expression<Func<TInput, Task<TOutput>>> code)`
 
-Invokes the given  async `code` expression on the underlying WPF element and returns the awaited result if it is serializable, or `null` if it is not.
+Invokes the given  async `code` expression on the underlying WPF element and returns the awaited result if it is serializable, or an exception if it is not.
 
 `TInput` specifies the type of the underlying WPF element.
 
@@ -294,7 +294,7 @@ var richText = element.InvokeAsync<RichTextEditor, string>(x => x.FetchInitialAs
 ----
 `Element InvokeAsync<TInput, TOutput>(Expression<Func<TInput, Task<TOutput>>> code, out TOutput? result)`
 
-Invokes the given async `code` expression on the underlying WPF element and returns the awaited result to `result` if it is serializable, or `null` if it is not.
+Invokes the given async `code` expression on the underlying WPF element and returns the awaited result to `result` if it is serializable, or an exception if it is not.
 
 `TInput` specifies the type of the underlying WPF element.
 
