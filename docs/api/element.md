@@ -218,9 +218,11 @@ element.RaiseEvent<TextBox>(x => new TextCompositionEventArgs(
     });
 ```
 ----
-`TOutput Invoke<TInput, TOutput>(Expression<Func<TInput, TOutput>> code)`
+`TOutput Invoke<TInput, TOutput>(Expression<Func<TInput, TOutput>> code, int timeoutMs = 10_000)`
 
 Invokes the given `code` expression on the underlying WPF element and returns the result if it is serializable, or an exception if it is not.
+
+A timeout exception is thrown if the expression execution time exceeds `timeoutMs`.
 
 `TInput` specifies the type of the underlying WPF element.
 
@@ -237,9 +239,11 @@ var richText = element.Invoke<RichTextEditor, string>(x => x.NormalizedRichText)
 var registrationDate = element.Invoke<Calendar, DateTime>(x => x.Invoke<DateTime>("GetRegistrationDate"));
 ```
 ----
-`Element Invoke<TInput, TOutput>(Expression<Func<TInput, TOutput>> code, out TOutput? result)`
+`Element Invoke<TInput, TOutput>(Expression<Func<TInput, TOutput>> code, out TOutput result, int timeoutMs = 10_000)`
 
 Invokes the given `code` expression on the underlying WPF element and returns the result to `result` if it is serializable, or an exception if it is not.
+
+A timeout exception is thrown if the expression execution time exceeds `timeoutMs`.
 
 `TInput` specifies the type of the underlying WPF element.
 
@@ -252,9 +256,11 @@ The current element is returned to allow chaining methods.
 element.Invoke<MyCustomControl, Guid>(x => x.GetFormId(), out var result);
 ```
 ----
-`Element Invoke(Expression<Action<UIElement>> code)`
+`Element Invoke(Expression<Action<UIElement>> code, int timeoutMs = 10_000)`
 
 Invokes the given `code` expression on the underlying WPF element.
+
+A timeout exception is thrown if the expression execution time exceeds `timeoutMs`.
 
 The current element is returned to allow chaining methods.
 
@@ -263,9 +269,11 @@ The current element is returned to allow chaining methods.
 element.Invoke(x => x.Focus());
 ```
 ----
-`Element Invoke<TInput>(Expression<Action<TInput>> code)`
+`Element Invoke<TInput>(Expression<Action<TInput>> code, int timeoutMs = 10_000)`
 
 Invokes the given `code` expression on the underlying WPF element.
+
+A timeout exception is thrown if the expression execution time exceeds `timeoutMs`.
 
 `TInput` specifies the type of the underlying WPF element.
 
@@ -276,9 +284,11 @@ The current element is returned to allow chaining methods.
 element.Invoke<MyCoolControl>(x => x.ResetState());
 ```
 ----
-`TOutput InvokeAsync<TInput, TOutput>(Expression<Func<TInput, Task<TOutput>>> code)`
+`TOutput InvokeAsync<TInput, TOutput>(Expression<Func<TInput, Task<TOutput>>> code, int timeoutMs = 10_000)`
 
 Invokes the given  async `code` expression on the underlying WPF element and returns the awaited result if it is serializable, or an exception if it is not.
+
+A timeout exception is thrown if the expression execution time exceeds `timeoutMs`.
 
 `TInput` specifies the type of the underlying WPF element.
 
@@ -292,9 +302,11 @@ var formId = element.InvokeAsync<MyCustomControl, Guid>(x => x.GetFormIdAsync())
 var richText = element.InvokeAsync<RichTextEditor, string>(x => x.FetchInitialAsync());
 ```
 ----
-`Element InvokeAsync<TInput, TOutput>(Expression<Func<TInput, Task<TOutput>>> code, out TOutput? result)`
+`Element InvokeAsync<TInput, TOutput>(Expression<Func<TInput, Task<TOutput>>> code, out TOutput result, int timeoutMs = 10_000)`
 
 Invokes the given async `code` expression on the underlying WPF element and returns the awaited result to `result` if it is serializable, or an exception if it is not.
+
+A timeout exception is thrown if the expression execution time exceeds `timeoutMs`.
 
 `TInput` specifies the type of the underlying WPF element.
 
@@ -309,9 +321,11 @@ The current element is returned to allow chaining methods.
 element.InvokeAsync<MyCustomControl, Guid>(x => x.GetFormIdAsync(), out var formId);
 ```
 ----
-`Element InvokeAsync(Expression<Func<UIElement, Task>> code)`
+`Element InvokeAsync(Expression<Func<UIElement, Task>> code, int timeoutMs = 10_000)`
 
 Invokes the given async `code` expression on the underlying WPF element.
+
+A timeout exception is thrown if the expression execution time exceeds `timeoutMs`.
 
 It is not possible to call `await` within an expression, it will be handled by the `Element` for you.
 
@@ -322,9 +336,11 @@ The current element is returned to allow chaining methods.
 element.InvokeAsync(x => x.ResetControlDataAsync());
 ```
 ----
-`Element InvokeAsync<TInput>(Expression<Func<TInput, Task>> code)`
+`Element InvokeAsync<TInput>(Expression<Func<TInput, Task>> code, int timeoutMs = 10_000)`
 
 Invokes the given async `code` expression on the underlying WPF element.
+
+A timeout exception is thrown if the expression execution time exceeds `timeoutMs`.
 
 `TInput` specifies the type of the underlying WPF element.
 
