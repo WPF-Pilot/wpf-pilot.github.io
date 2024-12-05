@@ -12,7 +12,6 @@ The `AppDriver` is responsible for:
 - Providing `Keyboard` access.
 - Taking pictures of the application.
 - Recording screencaps.
-- Executing code within the running app.
 
 ## Methods
 
@@ -163,66 +162,6 @@ The recording must be stopped (disposed), or the recording will be corrupt. Only
 ```csharp
 using var recordWindow = AppDriver.Record(@"C:\videos\test-vid.mp4", appDriver.Process.MainWindowTitle);
 using var recordFullscreen = AppDriver.Record(@"C:\videos\test-vid.mp4");
-```
-----
-`T? RunCode<T>(Expression<Func<Application, T>> code)`
-
-Runs the given expression within the context of the application. Returns the result of the expression if it is serializable, otherwise returns `null`.
-The `Application.Current` is passed as the first parameter to the expression.
-
-**Usage**
-```csharp
-// Get the main window name.
-var windowName = appDriver.RunCode(app => app.MainWindow.Name);
-
-// Execute a private method on a global singleton.
-// `Invoke` is a WPF Pilot convenience extension method for executing private methods.
-var appWarningCount = appDriver.RunCode(_ => MyCustomContext.Invoke<int>("GetWarningCount"));
-
-// Query a private property on a global singleton.
-// `Property` is a WPF Pilot convenience extension method for querying private properties.
-var appStartTime = appDriver.RunCode(_ => MyCustomContext.Property<DateTime>("StartTime"));
-
-// Query a private field on a global singleton.
-// `Field` is a WPF Pilot convenience extension method for querying private fields.
-var userId = appDriver.RunCode(_ => GlobalLogger.Field<string>("m_currentUserId"));
-```
-----
-`void RunCode(Expression<Action<Application>> code)`
-
-Runs the given expression within the context of the application.
-The `Application.Current` is passed as the first parameter to the expression.
-
-**Usage**
-```csharp
-appDriver.RunCode(app => app.MainWindow.Focus());
-appDriver.RunCode(_ => ScreenManager.SwitchToDarkMode());
-appDriver.RunCode(_ => GlobalCache.Clear());
-```
-----
-`T? RunCodeAsync<T>(Expression<Func<Application, Task<T>>> code)`
-
-Runs the given async expression within the context of the application. Returns the awaited result of the expression if it is serializable, otherwise returns `null`.
-The `Application.Current` is passed as the first parameter to the expression.
-
-It is not possible to call `await` within an expression, it will be handled by the `AppDriver` for you.
-
-**Usage**
-```csharp
-var userProfile = appDriver.RunCodeAsync(_ => UserManager.GetUserProfileAsync());
-var flushResult = appDriver.RunCodeAsync(_ => DiskManager.FlushCacheAsync());
-```
-----
-`void RunCodeAsync<T>(Expression<Func<Application, Task>> code)`
-
-Runs the given async expression within the context of the application.
-The `Application.Current` is passed as the first parameter to the expression.
-
-It is not possible to call `await` within an expression, it will be handled by the `AppDriver` for you.
-
-**Usage**
-```csharp
-appDriver.RunCodeAsync(_ => AppStartup.DoStepsAsync());
 ```
 ----
 `Keyboard Keyboard`

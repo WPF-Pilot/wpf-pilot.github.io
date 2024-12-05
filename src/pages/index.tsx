@@ -125,7 +125,6 @@ void UserProfileTest()
 
 const codeBlock2 = `// \`AppDriver\` sets up the app and provides access to the UI.
 using var appDriver = AppDriver.Launch("../bin/Debug/MyCoolApp.exe");
-appDriver.RunCode(_ => MyCoolAppManager.ClearScreen());
 
 // \`Element\` represents a UI element.
 var element = appDriver.GetElement(x => x["Width"] > 400);
