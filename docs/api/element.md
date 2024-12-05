@@ -256,19 +256,6 @@ The current element is returned to allow chaining methods.
 element.Invoke<MyCustomControl, Guid>(x => x.GetFormId(), out var result);
 ```
 ----
-`Element Invoke(Expression<Action<UIElement>> code, int timeoutMs = 10_000)`
-
-Invokes the given `code` expression on the underlying WPF element.
-
-A timeout exception is thrown if the expression execution time exceeds `timeoutMs`.
-
-The current element is returned to allow chaining methods.
-
-**Usage**
-```csharp
-element.Invoke(x => x.Focus());
-```
-----
 `Element Invoke<TInput>(Expression<Action<TInput>> code, int timeoutMs = 10_000)`
 
 Invokes the given `code` expression on the underlying WPF element.
@@ -319,21 +306,6 @@ The current element is returned to allow chaining methods.
 **Usage**
 ```csharp
 element.InvokeAsync<MyCustomControl, Guid>(x => x.GetFormIdAsync(), out var formId);
-```
-----
-`Element InvokeAsync(Expression<Func<UIElement, Task>> code, int timeoutMs = 10_000)`
-
-Invokes the given async `code` expression on the underlying WPF element.
-
-A timeout exception is thrown if the expression execution time exceeds `timeoutMs`.
-
-It is not possible to call `await` within an expression, it will be handled by the `Element` for you.
-
-The current element is returned to allow chaining methods.
-
-**Usage**
-```csharp
-element.InvokeAsync(x => x.ResetControlDataAsync());
 ```
 ----
 `Element InvokeAsync<TInput>(Expression<Func<TInput, Task>> code, int timeoutMs = 10_000)`
